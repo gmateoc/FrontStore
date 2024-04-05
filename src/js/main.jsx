@@ -5,6 +5,8 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
+import 'primeflex/primeflex.css';
+import '../sass/admin/app.scss'
 
 
 const queryClient = new QueryClient({

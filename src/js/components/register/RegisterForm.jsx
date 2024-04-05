@@ -1,25 +1,26 @@
 import { Button } from 'primereact/button';
 import { Formik, Form } from 'formik';
-import { CustomFormLoginInput } from '../formik/CustomFormInput';
-import { usePostMutation } from '../hooks/UsePostMutation';
-import { ValidationLogin } from '../validations/ValidationLogin';
-import { Link } from 'react-router-dom';
+import { CustomFormLoginInput } from '../../formik/CustomFormInput';
+import { useRegisterMutation } from '../../hooks/UseRegisterMutation';
+import { ValidationRegister } from '../../validations/ValidationRegister';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
 
-    const userMutation = usePostMutation();
+    const userMutation = useRegisterMutation();
 
     const handleSubmit = (values) => {
         userMutation.mutate({
-            url: 'http://127.0.0.1:8000/auth/login',
+            url: 'http://127.0.0.1:8000/auth/register',
             data: values
         });
     }
     
     const handleData = () => {
         return {
+            name: '',
             email: '',
             password: '',
+            confirmPassword: '',
         }
     }
 
@@ -28,11 +29,15 @@ export const LoginForm = () => {
             <Formik
                 initialValues={handleData()}
                 onSubmit={(values) => handleSubmit(values)}
-                validationSchema={ValidationLogin}
+                validationSchema={ValidationRegister}
             >
-                {() => (
+                {(formik) => (
                     <Form className='forms' style={{ width: '100%' }}>
-                        <div className='text-grey' style={{padding:'60px',paddingTop:'10px', paddingBottom:'0px'}}>
+                        <div className='text-grey' style={{padding:'60px',paddingTop:'0px', paddingBottom:'0px'}}>
+                            <CustomFormLoginInput
+                                placeholder='Nombre'
+                                name='name'
+                                type='text'/>
                             <CustomFormLoginInput
                                 placeholder='Correo electrónico'
                                 name='email'
@@ -41,19 +46,20 @@ export const LoginForm = () => {
                                 placeholder='Contraseña'
                                 name='password'
                                 type='password'/>
+                            <CustomFormLoginInput
+                                placeholder='Confirmar contraseña'
+                                name='confirmPassword'
+                                type='password'/>
                         </div>
                         <div className='field my-5 flex justify-content-center'>
                             <Button
                                 className='login-btn'
-                                label="Iniciar sesión"
+                                label="Registrar"
                                 rounded
                                 severity="warning"
                                 type="submit"
                             />
                         </div>
-                        <Link to="/admin/register" className={'link'}>
-                            <h2 className={"flex align-items-center justify-content-center "} style={{color:'white'}}>Registrarse</h2>
-                        </Link>
                     </Form>
                 )}
             </Formik>

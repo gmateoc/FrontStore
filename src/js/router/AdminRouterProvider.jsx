@@ -13,6 +13,11 @@ export const RouteProvider = ({children}) => {
             title: "Games",
             parent: "#"
         },
+        "admin/catalog":
+        {
+            title: "Catalog",
+            parent: "#"
+        },
     }),[]);
 
     return (

@@ -1,0 +1,155 @@
+// Colors
+@import 'colors';
+
+.swal2-container{
+    z-index: 1200 !important;
+}
+
+body.swal2-height-auto{
+    height: auto;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+    width: 23em;
+}
+
+.custom-swal {
+    .swal2-actions {
+        padding: 0 1em;
+
+        button{
+            border: none;
+            color: #25435e;
+            font-weight: 900;
+            font-family: sans-serif;
+            background: none;
+            padding: 4px 16px;
+            border-radius: 10px;
+            transition: .3s;
+
+            &:hover {
+                background: #e8eef3;
+                box-shadow: 0 0 9px #adb6be;
+            }
+        }
+    }
+
+    &.swal2-backdrop-show{
+        background: var(--color-overlay) !important;
+    }
+}
+
+//////  LOGIN  //////
+.login-logo{
+    width: 150px;
+}
+.login-cover {
+    background-color: var(--color-blue-medium) !important;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.login-footer{
+    margin: 11px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+//****** FORMS ******//
+.forms {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+}
+
+.formErrorMessage {
+    background-color: transparent !important;
+    color: red !important;
+    padding: 0px;
+}
+
+.login-input {
+    border-radius: 0rem 0rem 0rem 0rem;
+    background-color: #282828;
+    border-bottom: 0px;
+    border-right: 0px;
+    border-top: 0px;
+}
+.login-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.login-input:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0 1000px #282828 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: 0 solid transparent;
+    border-radius: 0rem 0rem 0rem 0rem;
+}
+
+.login-btn {
+    border-radius: 2rem;
+    background-color: #9FBE48;
+    color: #FFFFFF;
+    border: 0px;
+    letter-spacing: 4px;
+    width: 100%;
+}
+.login-input-label{
+    color: var(--color-blue-medium);
+}
+
+.form-btn {
+    color: var(--color-white) !important;
+    width: 11rem;
+}
+
+.p-dropdown.p-inputwrapper, input.p-inputtext, .p-inputtextarea {
+    border-radius: 18px;
+    border: 2px solid #28282800;
+    padding: 7px 15px;
+}
+
+.p-dropdown:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.p-component:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.p-inputwrapper:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.p-inputtext:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.p-inputtextarea {
+    background-color: #F0F2F3 !important;
+}
+
+.p-dropdown.p-inputwrapper .p-dropdown-label {
+    padding: 0
+}
+
+.p-dropdown {
+    background-color: #F0F2F3 !important;
+}
+
+.p-dropdown-items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+

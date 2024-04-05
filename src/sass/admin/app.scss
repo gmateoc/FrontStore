@@ -1,0 +1,75 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+
+// Variables
+@import './commons/variables';
+
+//Generals
+@import './commons/general';
+
+//Colors
+@import './commons/colors';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+/*@mixin btn-properties($color1, $color2, $height:auto, $way, $width:auto, $border, $radius, $margin) {
+    background: linear-gradient($way, $color1, $color2);
+    height: $height;
+    width: $width;
+    border-style: $border;
+    border-radius: $radius;
+    margin-left: $margin;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: linear-gradient(180deg, #001623 0%, #000304 57.81%, #000 100%) repeat;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+}
+
+.btn-turquoise {
+    @include btn-properties(
+            $color-turquoise-deg1,
+            $color-turquoise-deg2,
+            2rem,
+            to right,
+            9rem,
+            none,
+            2rem,
+            30px
+    );
+}
+
+.btn-turquoise-home {
+    @include btn-properties(
+            $color-turquoise-deg1,
+            $color-turquoise-deg2,
+            2rem,
+            to right,
+            9rem,
+            none,
+            2rem,
+            0px
+    );
+}
+
+.btn-black-details {
+    @include btn-properties(
+            $color-black,
+            $color-gray-dark,
+            2rem,
+            to right,
+            9rem,
+            none,
+            2rem,
+            0px
+    );
+}*/
