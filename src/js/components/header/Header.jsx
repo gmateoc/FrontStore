@@ -6,6 +6,9 @@ import { CustomFormChangeNameInput } from '../../formik/CustomFormInput';
 import { Formik, Form } from 'formik';
 import { useUpdateUserMutation } from '../../hooks/UseUpdateUserMutation';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { SwalReact } from '../../utils/SwalConfig';
+import { ValidationNewName } from '../../validations/ValidationNewName';
 
 export const Header = () => {
 
@@ -27,6 +30,43 @@ export const Header = () => {
         }
     }
 
+    const handleLogout =  () => {
+        try {
+            SwalReact.fire({
+                title: '<div class="text-black-input">Cierre de sesión</div>',
+                text: '¿Estás seguro de que deseas cerrar sesión?',
+                showConfirmButton: true,
+                confirmButtonText: 'Cerrar sesión',
+                confirmButtonClass: 'custom-confirm',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    axios.get("http://127.0.0.1:8000/api/logout",{headers: {
+                        Authorization: `Bearer ${id.token}`
+                    }})
+                        .then(response => {
+                            window.location.replace('/admin/login');
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                }
+            })
+
+        } catch (error) {
+            SwalReact.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: 'Error al cerrar sesión: '+ error,
+                showConfirmButton: false,
+                timer: 2000,
+            }).then(() => {
+                window.location.replace(`/admin/catalog/${id.userID}/${id.token}`);
+            })
+        }
+    };
+
     const start = (
         <>
             <div className={'flex w-full'}>
@@ -46,9 +86,11 @@ export const Header = () => {
     
     const end = (
         <>
+            <div className={'flex w-full'}>
                 <Formik
                     initialValues={handleData()}
                     onSubmit={(values) => handleSubmit(values)}
+                    validationSchema={ValidationNewName}
                 >
                     {() => (
                         <Form className='forms' style={{ width: '100%' }}>
@@ -72,7 +114,14 @@ export const Header = () => {
                         </Form>
                     )}
                 </Formik>
-            </>
+                <div >
+                    <Button className={'bg-black-dark'} onClick={handleLogout}>
+                        Cerrar sesión
+                    </Button>
+                </div>
+            </div>
+                
+        </>
     );
 
     return (

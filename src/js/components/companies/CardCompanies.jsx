@@ -1,14 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-
 export const CardCompanies = ({company}) => {
 
     const {id,nombre} = company;
 
     return (
         <>
-            <div className='d-flex ml-4'
+            <div className='m-4'
                 style={{
                     borderRadius:'10px', 
                     backgroundColor:'#9fbe48', 

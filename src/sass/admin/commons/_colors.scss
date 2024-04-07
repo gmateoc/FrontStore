@@ -12,6 +12,7 @@
     --color-gray-medium: #8f9092;
     --color-black: #0a0909;
     --color-black-light: #282828;
+    --color-black-medium: #0A0A0A;
     --color-green-normal: #9FBE48;
 
     --color-overlay: rgba(34, 65, 92, .7);
@@ -85,9 +86,10 @@
     border: 1px solid #000000 !important;
     width: 150px;
     height: 49px;
-    padding: 15px 90px;
+    padding: 0px;
     border-radius: 30px;
     gap: 10px;
+    margin-right: 10px;
 }
 
 .btn-swa-confirm {
@@ -95,7 +97,7 @@
     border: 1px solid #000000 !important;
     width: 150px;
     height: 49px;
-    padding: 15px 90px;
+    padding: 0px;
     border-radius: 30px;
     gap: 10px;
 }

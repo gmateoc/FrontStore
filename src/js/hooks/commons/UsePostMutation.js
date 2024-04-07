@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {useMutation} from '@tanstack/react-query';
-import {SwalReact} from "../utils/SwalConfig";
+import {SwalReact} from "../../utils/SwalConfig";
 
 export const usePostMutation = () => {
     

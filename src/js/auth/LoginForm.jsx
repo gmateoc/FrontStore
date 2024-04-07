@@ -1,7 +1,7 @@
 import { Button } from 'primereact/button';
 import { Formik, Form } from 'formik';
 import { CustomFormLoginInput } from '../formik/CustomFormInput';
-import { usePostMutation } from '../hooks/UsePostMutation';
+import { usePostMutation } from '../hooks/commons/UsePostMutation';
 import { ValidationLogin } from '../validations/ValidationLogin';
 import { Link } from 'react-router-dom';
 

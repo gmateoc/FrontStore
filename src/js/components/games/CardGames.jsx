@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 
+export const Cards = ({companyGame, listBuyCar, setListBuyCar}) => {
+    const id = useParams();
 
-export const Cards = ({game}) => {
+    const [addButtonCar, setAddButtonCar] = useState(false);
 
-    const {id,nombre} = game;
+    const handleAddBuyCar= () => {
+        const game = companyGame;
+        setListBuyCar(prevList => [...prevList, game]);
+    }
 
     return (
         <>
-            <div className='d-flex ml-4'
+            <div className='m-4'
                 style={{
                     borderRadius:'10px', 
                     backgroundColor:'#9fbe48', 
@@ -20,11 +26,21 @@ export const Cards = ({game}) => {
                     flexDirection:'column'
                 }}
                 >
-                <div >
-                    <p>{nombre}</p>
+                <div>
+                    <p style={{marginBottom:'0px', marginTop:'0px'}}>{companyGame.game.nombre}</p>
                 </div>
-                <div></div>
+                <div>
+                    <p style={{marginBottom:'0px', marginTop:'0px'}}>{companyGame.company.nombre}</p>
+                </div>
+                <div>
+                    <p style={{marginBottom:'30px', marginTop:'0px'}}>Precio: ${companyGame.price}</p>
+                </div>
                 <Button>
+                    <Link to={`/admin/detail/${id.userId}/${id.token}`} state={{value: companyGame}}>
+                        Ver detalle
+                    </Link>
+                </Button>
+                <Button onClick={handleAddBuyCar}>
                     Agregar al carrito
                 </Button>
             </div>

@@ -1,39 +1,47 @@
 import { Button } from 'primereact/button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { CustomFormLoginInput } from '../../formik/CustomFormInput';
-import { usePostGamesMutation } from '../../hooks/usePostGamesMutation';
 import { useParams } from 'react-router-dom';
 import { ValidationGameCompany } from '../../validations/ValidationGameCompany';
+import { useFetchQuery } from '../../hooks/commons/useFetchQuery';
+import { Dialog } from 'primereact/dialog';
+import { useGamesForm } from '../../hooks/Games/useGamesForm';
+import { dialogConfig } from '../../utils/DialogConfig';
 
-export const GamesForm = () => {
+export const GamesForm = ({handleReloadCards = () =>{} }) => {
+
+    const {showDialog,
+        setShowDialog,
+        handleInitData,
+        handleHeader,
+        handleSubmit,} = useGamesForm(null,handleReloadCards);
 
     const id = useParams();
 
-    const useGamesMutation = usePostGamesMutation();
-
-    const handleSubmit = (values) => {
-        useGamesMutation.mutate({
-            url: 'http://127.0.0.1:8000/api/games/create',
-            data: values,
-            token: id.token,
-        });
-    }
-    
-    const handleData = () => {
-        return {
-            nombre: '',
-            stock: '',
-            price: '',
-            company_id: '',
-        }
-    }
-
-    
-  
+    const companiesQuery = useFetchQuery({url: 'http://127.0.0.1:8000/api/companies/all', params: '', token: id.token, queryName: 'companies'});
+        
     return(
         <>
+            {
+                <Button
+                className='rounded-circle bg-none border-0 p-10 mx-10'
+                onClick={() => setShowDialog(true)}
+                >
+                    Agregar nuevo juego
+                </Button>
+            }
+            
+            <Dialog
+                visible={showDialog}
+                style={{ width: '50vw' }}
+                pt={dialogConfig}
+                onHide={() => setShowDialog(false)}
+                closable={false}
+                header={() => handleHeader() }
+                draggable={false}
+            >
             <Formik
-                initialValues={handleData()}
+                initialValues={handleInitData()}
                 onSubmit={(values) => handleSubmit(values)}
                 validationSchema={ValidationGameCompany}
             >
@@ -79,6 +87,7 @@ export const GamesForm = () => {
                     </Form>
                 )}
             </Formik>
+            </Dialog>
         </>
     )
 }

@@ -1,15 +1,14 @@
 import React from 'react';
-import { Route, Routes, Navigate, useParams } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import {RouteProvider} from "./AdminRouterProvider";
 import { Login } from '../auth/Login';
 import { Register } from '../components/register/Register';
 import { Catalog } from '../components/catalog/Catalog';
 import { Companies } from '../components/companies/Companies';
+import GamesDetails from '../components/games/GamesDetails';
 
 
 export const AdminRouter = () => {
-
-  const cod = useParams();
 
   return (
     <RouteProvider>
@@ -18,6 +17,7 @@ export const AdminRouter = () => {
             <Route path='admin/register' element={<Register/>}></Route>
             <Route path='admin/catalog/:userId/:token' element={<Catalog />}></Route>
             <Route path='admin/companies/:userId/:token' element={<Companies />}></Route>
+            <Route path='admin/detail/:userId/:token' element={<GamesDetails />}></Route>
             <Route path='admin/*' element={<Navigate to={'/admin/login'} replace={true} />}/>
         </Routes>
     </RouteProvider>
