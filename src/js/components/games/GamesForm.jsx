@@ -1,6 +1,6 @@
 import { Button } from 'primereact/button';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { CustomFormLoginInput } from '../../formik/CustomFormInput';
+import { CustomFormAddGameInput } from '../../formik/CustomFormInput';
 import { useParams } from 'react-router-dom';
 import { ValidationGameCompany } from '../../validations/ValidationGameCompany';
 import { useFetchQuery } from '../../hooks/commons/useFetchQuery';
@@ -48,22 +48,30 @@ export const GamesForm = ({handleReloadCards = () =>{} }) => {
                 {() => (
                     <Form className='forms' style={{ width: '100%' }}>
                         <div className='text-grey' style={{padding:'60px',paddingTop:'10px', paddingBottom:'0px'}}>
-                            <CustomFormLoginInput
+                            <CustomFormAddGameInput
                                 placeholder='Nombre'
                                 name='nombre'
                                 type='text'/>
-                            <CustomFormLoginInput
+                            <CustomFormAddGameInput
                                 placeholder='Stock'
                                 name='stock'
                                 type='number'/>
-                            <CustomFormLoginInput
+                            <CustomFormAddGameInput
                                 placeholder='Precio'
                                 name='price'
                                 type='number'/>
-                            <span className='mr-3 h6'>Compañía</span>
+                            
                             <div className="field">
-                                <Field name='company_id' as='select'>
-                                    <option value=''>Select a company</option>
+                                <Field 
+                                    name='company_id' 
+                                    as='select' 
+                                    className='w-full'
+                                    style={{
+                                        borderRadius:'20px',
+                                        padding: '10px',
+                                    }}
+                                >
+                                    <option value=''>Selecciona una compañía</option>
                                     {Array.isArray(companiesQuery?.data?.data) &&
                                         companiesQuery.data.data.map((company) => (
                                         <option key={company.id} value={company.id}>

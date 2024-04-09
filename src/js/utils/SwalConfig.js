@@ -6,7 +6,7 @@ export const MySwal = withReactContent(Swal)
 export const SwalReact = MySwal.mixin({
     customClass: {
         confirmButton: 'btn btn-swa-confirm text-black text-bold ms-3',
-        cancelButton: 'btn btn-swa-cancel text-black text-bold me-3'
+        cancelButton: 'btn btn-swa-cancel text-black text-bold me-3',
     },
     buttonsStyling: false,
     allowEnterKey: false,

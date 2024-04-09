@@ -99,7 +99,8 @@ export const Header = () => {
                                     <CustomFormChangeNameInput
                                         placeholder='Nuevo nombre'
                                         name='name'
-                                        type='text'/>
+                                        type='text'
+                                    />
                                 </div>
                                 <div className='field my-5 flex justify-content-center'>
                                     <Button

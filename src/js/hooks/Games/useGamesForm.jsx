@@ -28,6 +28,7 @@ const useGamesForm = (values,handleReloadCards)  => {
                              height='30px'
                              className='cursor-pointer'
                              onClick={handleClose}
+                             style={{backgroundColor:'white',borderRadius:'50px'}}
                         />
                     </Col>
                 </Row>

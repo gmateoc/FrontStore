@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import {RouteProvider} from "./AdminRouterProvider";
 import { Login } from '../auth/Login';
 import { Register } from '../components/register/Register';
 import { Catalog } from '../components/catalog/Catalog';
@@ -11,7 +10,6 @@ import GamesDetails from '../components/games/GamesDetails';
 export const AdminRouter = () => {
 
   return (
-    <RouteProvider>
         <Routes>
             <Route path='admin/login' element={<Login/>}></Route>
             <Route path='admin/register' element={<Register/>}></Route>
@@ -20,6 +18,5 @@ export const AdminRouter = () => {
             <Route path='admin/detail/:userId/:token' element={<GamesDetails />}></Route>
             <Route path='admin/*' element={<Navigate to={'/admin/login'} replace={true} />}/>
         </Routes>
-    </RouteProvider>
   );
 }

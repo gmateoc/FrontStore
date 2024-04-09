@@ -31,7 +31,7 @@ export const RegisterForm = () => {
                 onSubmit={(values) => handleSubmit(values)}
                 validationSchema={ValidationRegister}
             >
-                {(formik) => (
+                {() => (
                     <Form className='forms' style={{ width: '100%' }}>
                         <div className='text-grey' style={{padding:'60px',paddingTop:'0px', paddingBottom:'0px'}}>
                             <CustomFormLoginInput

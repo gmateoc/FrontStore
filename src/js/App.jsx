@@ -6,11 +6,13 @@ export const App = () => {
 
   return (
     <>
+    
       <BrowserRouter>
         <HeaderProvider>
           <AdminRouter/>
         </HeaderProvider>
       </BrowserRouter>
+    
     </>
   );
 };

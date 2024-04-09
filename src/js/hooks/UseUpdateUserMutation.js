@@ -22,7 +22,7 @@ export const useUpdateUserMutation = () => {
             if(response.data.success){
                 SwalReact.fire({
                     icon: 'success',
-                    title: '¡Éxito!',
+                    title: `¡Éxito ${response.data.user.name}!`,
                     text: 'Se realizó el cambio',
                     showConfirmButton: false,
                     timer: 2000,

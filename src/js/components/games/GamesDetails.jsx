@@ -13,12 +13,17 @@ const GamesDetails = () => {
             <Row>
                 <Header/>
             </Row>
-            <Row>
-                <Button>
-                    <Link to={`/admin/catalog/${id.userId}/${id.token}`}>
-                        Regresar
-                    </Link>
-                </Button>
+            <Row style={{display:'flex', alignItems:'center'}}>
+                <Link to={`/admin/catalog/${id.userId}/${id.token}`}>
+                    <img src="/src/assets/icons/back.svg" 
+                        alt="atrás"
+                        width='30px'
+                        height='30px'
+                        className='cursor-pointer'
+                        style={{ fill: 'black', alignItems:'center', backgroundColor:'white',borderRadius:'50px' }}
+                    />
+                </Link>
+                    <p style={{color:'white', marginTop:'11px'}}>Regresar</p>
             </Row>
             <Row>
                 <div style={{display:'flex',justifyContent:'center',fontSize:'40px', fontWeight:'bold'}}>
@@ -29,6 +34,9 @@ const GamesDetails = () => {
                 </div>
                 <div style={{display:'flex',justifyContent:'center',fontSize:'20px', fontWeight:'bold'}}>
                     <p>Nombre de la compañía creadora: {state.value.company.nombre}</p>
+                </div>
+                <div style={{display:'flex',justifyContent:'center',fontSize:'20px', fontWeight:'bold'}}>
+                    <p>Stock: {state.value.stock} und.</p>
                 </div>
                 <div style={{display:'flex',justifyContent:'center',fontSize:'20px', fontWeight:'bold'}}>
                     <p>Precio: ${state.value.price}</p>

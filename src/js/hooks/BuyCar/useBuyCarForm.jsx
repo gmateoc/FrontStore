@@ -15,12 +15,13 @@ const useBuyCarForm = ()  => {
                              height='30px'
                              className='cursor-pointer'
                              onClick={handleClose}
+                             style={{backgroundColor:'white',borderRadius:'50px'}}
                         />
                     </Col>
                 </Row>
                 <Row className='m-0'>
                     <Col className='w-100 text-center p-0'>
-                        <h4>Listo de juegos agregados</h4>
+                        <h4>Lista de juegos agregados</h4>
                     </Col>
                 </Row>
             </>

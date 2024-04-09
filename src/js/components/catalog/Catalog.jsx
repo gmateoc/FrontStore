@@ -151,8 +151,12 @@ export const Catalog = () => {
             </Row>
             <Row>
                 <div style={{display:'flex' ,justifyContent:'center', alignItems:'center'}}>
-                    <GamesForm handleReloadCards={handleReloadCards} />
-                    <BuyCar listBuyCar={listBuyCar} setListBuyCar={setListBuyCar}/>
+                    <div style={{marginRight:'40px'}}>
+                        <GamesForm handleReloadCards={handleReloadCards} />
+                    </div>
+                    <div>
+                        <BuyCar listBuyCar={listBuyCar} setListBuyCar={setListBuyCar}/>
+                    </div>
                 </div>
             </Row>
             <Row>
@@ -170,9 +174,9 @@ export const Catalog = () => {
                                 }}
                             />
                         </div>
-                        <h1>
+                        <h2>
                             Juegos
-                        </h1>
+                        </h2>
                         <div>
                             <div>
                                 <details>

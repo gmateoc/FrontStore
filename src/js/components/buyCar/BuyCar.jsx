@@ -40,6 +40,7 @@ export const BuyCar = ({listBuyCar,setListBuyCar}) => {
                                 <div key={index} style={{display:'flex', justifyContent:'space-between'}}>
                                     <p style={{marginRight:'10px'}}>{index+1}</p>
                                     <p>{game.game.nombre}</p>
+                                    <p>{game.price}</p>
                                     <button onClick={()=>handleDeleteListBuyCar(game.id)}>Eliminar</button>
                                 </div>
                             ))

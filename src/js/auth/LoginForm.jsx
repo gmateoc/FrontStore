@@ -52,7 +52,12 @@ export const LoginForm = () => {
                             />
                         </div>
                         <Link to="/admin/register" className={'link'}>
-                            <h2 className={"flex align-items-center justify-content-center "} style={{color:'white'}}>Registrarse</h2>
+                            <Button
+                                className='register-btn'
+                                label="Registrarse"
+                                rounded
+                                severity="warning"
+                            />
                         </Link>
                     </Form>
                 )}

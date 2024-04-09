@@ -18,10 +18,11 @@ export const usePostMutation = () => {
         onSuccess: (response) => {
             const userId = response.data.user.id;
             const token = response.data.access_token;
+
             if(response.data.success){
                 SwalReact.fire({
                     icon: 'success',
-                    title: '¡Acceso concedido!',
+                    title: `¡Acceso concedido ${response.data.user.name}!`,
                     text: 'Ha iniciado sesión con éxito',
                     showConfirmButton: false,
                     timer: 2000,

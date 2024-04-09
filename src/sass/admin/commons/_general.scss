@@ -103,6 +103,14 @@ div:where(.swal2-container) div:where(.swal2-popup) {
     color: var(--color-blue-medium);
 }
 
+.register-btn {
+    border-radius: 2rem;
+    background-color: #18255e;
+    color: #FFFFFF;
+    border: 0px;
+    letter-spacing: 4px;
+    width: 100%;
+}
 .form-btn {
     color: var(--color-white) !important;
     width: 11rem;
